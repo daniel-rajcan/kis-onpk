@@ -18,7 +18,7 @@ module "instance" {
   source           = "./compute"
   project          = var.project
   environment      = var.environment
-  remote_ip_prefix = "${data.http.my_public_ip.response_body}/32"
+  my_public_ip     = data.http.my_public_ip.response_body
   key_pair_name    = openstack_compute_keypair_v2.keypair.name
   script_file_path = "${path.module}/scripts/docker.sh"
 }

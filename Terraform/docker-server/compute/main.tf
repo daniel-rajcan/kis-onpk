@@ -41,7 +41,7 @@ resource "openstack_networking_secgroup_rule_v2" "security_group_rule_icmp" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "icmp"
-  remote_ip_prefix  = var.remote_ip_prefix
+  remote_ip_prefix  = join("/", [var.my_public_ip, "32"])
   security_group_id = openstack_networking_secgroup_v2.security_group.id
 }
 
@@ -51,7 +51,7 @@ resource "openstack_networking_secgroup_rule_v2" "security_group_rule_udp" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "udp"
-  remote_ip_prefix  = var.remote_ip_prefix
+  remote_ip_prefix  = join("/", [var.my_public_ip, "32"])
   security_group_id = openstack_networking_secgroup_v2.security_group.id
 }
 
@@ -61,7 +61,7 @@ resource "openstack_networking_secgroup_rule_v2" "security_group_rule_tcp" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
-  remote_ip_prefix  = var.remote_ip_prefix
+  remote_ip_prefix  = join("/", [var.my_public_ip, "32"])
   security_group_id = openstack_networking_secgroup_v2.security_group.id
 }
 

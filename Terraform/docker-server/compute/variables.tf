@@ -7,7 +7,7 @@ variable "environment" {
   type = string
 }
 
-variable "remote_ip_prefix" {
+variable "my_public_ip" {
   type = string
 }
 

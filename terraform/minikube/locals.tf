@@ -9,4 +9,5 @@ locals {
     network = "http://158.193.138.33:9696/v2.0/"
   }
   my_public_ip = "${data.http.my_public_ip.response_body}/32"
+  project      = lower("${var.tenant_name}-minikube")
 }

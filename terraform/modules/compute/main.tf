@@ -65,15 +65,16 @@ resource "openstack_networking_secgroup_rule_v2" "security_group_rule_tcp" {
   security_group_id = openstack_networking_secgroup_v2.security_group.id
 }
 
-data "openstack_images_image_ids_v2" "flavor_id" {
-  name = var.flavor_name
+data "openstack_images_image_v2" "flavor_id" {
+  name        = var.flavor_name
+  most_recent = true
 }
 
 # Create Virtual Machine
 resource "openstack_compute_instance_v2" "instance" {
   name            = "${var.project}-${var.environment}-instance"
   image_id        = local.image.ubuntu.id
-  flavor_id       = data.openstack_images_image_ids_v2.flavor_id.ids[0]
+  flavor_id       = data.openstack_images_image_ids_v2.flavor_id.id
   key_pair        = var.key_pair_name
   security_groups = [openstack_networking_secgroup_v2.security_group.name]
 

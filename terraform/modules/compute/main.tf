@@ -74,7 +74,7 @@ data "openstack_images_image_v2" "flavor_id" {
 resource "openstack_compute_instance_v2" "instance" {
   name            = "${var.project}-${var.environment}-instance"
   image_id        = local.image.ubuntu.id
-  flavor_id       = data.openstack_images_image_ids_v2.flavor_id.id
+  flavor_id       = data.openstack_images_image_v2.flavor_id.id
   key_pair        = var.key_pair_name
   security_groups = [openstack_networking_secgroup_v2.security_group.name]
 

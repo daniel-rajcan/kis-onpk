@@ -23,8 +23,8 @@ output "instance_security_group_id" {
   value = openstack_networking_secgroup_v2.security_group.id
 }
 
-output "user_data_logs" {
-  value = "tail -fn 200 /var/log/cloud-init-output.log"
+output "user_data_logs_path" {
+  value = "/var/log/cloud-init-output.log"
 }
 
 output "ssh_command" {

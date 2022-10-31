@@ -3,7 +3,7 @@
 locals {
   image = {
     ubuntu = {
-      id          = "0fc1152a-4037-4d89-a22a-60f477e2eba0"
+      name        = "ubuntu_server_20.04_Openstack"
       os_username = "ubuntu"
     }
   }

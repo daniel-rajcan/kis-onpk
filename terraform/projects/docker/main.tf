@@ -1,7 +1,7 @@
 # --- root/main.tf ---
 
 data "http" "my_public_ip" {
-  url = "http://ipv4.icanhazip.com"
+  url = "http://ifconfig.io"
 }
 
 data "cloudinit_config" "user_data" {
